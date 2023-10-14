@@ -130,78 +130,93 @@ int main() {
 		}
 	}
 }
-//bt3 Với mỗi n ≥ 1, số Yn được tính như sau : tính y5
-long f(int n) {
-	if (n == 1 || n == 2 || n == 3) {
-		return n;
-	}
-	else {
-		return f(n - 1) + 2 * f(n - 2) + 3 * f(n - 3);
-	}
-		
-}
-int main() {
-	int n;
-	cout << "nhap n: ";
-	cin >> n;
-	cout << f(n);
-
-}
 
 
-
-//tính n theo công thức quy nạp f(1) =1,
-//f(2n) = 2f(n),
-//f(2n + 1) = 2f(n) + 3f(n + 1)
-int f(int n) {
-	if (n == 1 || n == 2) {
-		return n;
-	}
-	else {
-		return 2 * f(n / 2) + 3 * f(n / 2) + 1; //2 * f(n) + 3 * f(n + 1);
-	}
-}
-int main() {
-	int a;
-	cout << "nhap so a: ";
-	cin >> a;
-	int kq = f(a);
-	cout << "so " << a << " co gia tri f(n) la: " << kq;
-}
-
-//tìm ước chung lớn nhất
-int uocChungLonNhat(int a, int b) {
+//bt6 Tìm UCLN, BCNN của 2 số nguyên dương
+int ucln(int a, int b) {
 	if (b == 0) {
 		return a;
 	}
-	return uocChungLonNhat(b, a % b);
+	else {
+		return ucln(b, a % b);
+	}
+}
+int bcnn(int a, int b) {
+	return (a * b) / ucln(a, b);
+}
+int main() {
+	int a, b;
+	cin >> a >> b;
+	cout << ucln(a, b) << endl;
+	cout << bcnn(a, b);
+	
+	
+}
+
+
+//bt7 Tính căn 2 + căn 2 + căn 2(n)
+float tinh(int a) {
+	float s = sqrt(2);
+	for (int i = 2; i <= a; i++) {
+		s = sqrt(2 + s);
+		return s;
+	}
+}
+int main() {
+	int n;
+	cin >> n;
+	cout << "de quy " << tinh(n);
+}
+
+
+//bt8   Y1=1, Y2=2, Y3=3,Yn = Yn - 1 + 2Yn - 2 + 3Yn - 3 nếu n ≥4
+int Y(int n) {
+	if (n == 1 || n == 2 || n == 3) {
+		return n;
+	}
+	return Y(n - 1) + 2 * Y(n - 2) + 3 * Y(n - 3);
 }
 
 int main() {
-	int a, b;
-	cout << "Nhap vao hai so nguyen duong: ";
-	cin >> a >> b;
+	int n;
+	cout << "Nhap n= ";
+	cin >> n;
+	cout << "Yn la: " << Y(n);
 
-	int ucln = uocChungLonNhat(a, b);
-	cout << "Uoc chung lon nhat cua " << a << " va " << b << " la: " << ucln << endl;
+}
 
+
+//bt9 f(1) = 1, f(2n) = 2f(n), f(2n + 1) = 2f(n) + 3f(n + 1)). Tính f(5) và f(n)
+int f(int n){
+	if (n == 1)
+		return n;
+	if (n % 2 == 0)
+		return 2 * f(n / 2);
+	else
+		return 2 * f((n - 1) / 2) + 3 * f((n + 1) / 2);
+}
+int main() {
+	int n;
+	cout << "Nhap n= ";
+	cin >> n;
+	cout << "f(n) la: " << f(n);
 	return 0;
 }
 
 
-int x(int n) {
-	if (n == 1 || n == 2) {
+//bt10 Với mỗi n ≥ 1, số Xn được tính như sau X1=1, X2=1, Xn = Xn - 1 + (n - 1)Xn - 2 với n ≥3
+int X(int n) {
+	if (n == 1)
 		return 1;
-	}
-	else {
-		return x(n - 1) + (n - 1) * x(n - 2);
-	}
+	if (n == 2)
+		return 1;
+	else
+		return X(n - 1) + (n - 1) * X(n - 2);
 }
 int main() {
 	int n;
-	cout << "nhap n";
+	cout << "nhap n= ";
 	cin >> n;
-	int kq = x(n);
-	cout << kq;
-
+	cout << "X(n) la: " << X(n);
 }
+
