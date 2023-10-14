@@ -73,7 +73,7 @@ int main() {
 }
 
 
-//b3 học về con trỏ
+//b4b4 học về con trỏ
 int main() {
 	int n;
 	n = 200;
@@ -101,7 +101,9 @@ void hoanvi1(int *a,int *b) {	//dùng con trỏ
 	*a = *b;
 	*b = tam;
 }
-//viết hàm trả về tổng 2 số
+
+
+// b5 viết hàm trả về tổng 2 số
 int tong_hieu(int a, int b, int* hieu) {
 	int tong, hieu;
 	tong = a + b;
