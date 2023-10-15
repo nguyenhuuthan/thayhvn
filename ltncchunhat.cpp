@@ -154,7 +154,10 @@ int main() {
 }
 
 
-//bt7 Tính căn 2 + căn 2 + căn 2(n)
+//bt7 Tính căn 2 + căn 2 + căn 2(n) 
+//  n = 1 : S(1) = sqrt(2) 
+//  n = 2:  S(2) = sqrt(2 + sqrt(2))
+//  n = 3: S(3) = sqrt(2 + sqrt(2 + sqrt(2)))
 float tinh(int a) {
 	float s = sqrt(2);
 	for (int i = 2; i <= a; i++) {
@@ -170,6 +173,11 @@ int main() {
 
 
 //bt8   Y1=1, Y2=2, Y3=3,Yn = Yn - 1 + 2Yn - 2 + 3Yn - 3 nếu n ≥4
+//Y1=1;
+//Y2=2;
+//Y3=3
+//Y4= Y3+2Y2+3Y1= 3+2*2+3*1=10
+//Y5= Y4+2Y3+3Y2=10+2*3+3*2=22
 int Y(int n) {
 	if (n == 1 || n == 2 || n == 3) {
 		return n;
@@ -187,6 +195,9 @@ int main() {
 
 
 //bt9 f(1) = 1, f(2n) = 2f(n), f(2n + 1) = 2f(n) + 3f(n + 1)). Tính f(5) và f(n)
+//f(1) =1,
+//f(2n) =2f(n),
+//f(2n+1)= 2f(n) + 3f(n+1)
 int f(int n){
 	if (n == 1)
 		return n;
@@ -205,6 +216,11 @@ int main() {
 
 
 //bt10 Với mỗi n ≥ 1, số Xn được tính như sau X1=1, X2=1, Xn = Xn - 1 + (n - 1)Xn - 2 với n ≥3
+//N=1: X1=1
+//N=2: X2=1
+//N=3: X3=X2+2*X1=1+2*1=3
+//N=4: X4=X3+3*X2=3+3*1=6
+//N=5: X5=X4+4*X3=6+4*3=18
 int X(int n) {
 	if (n == 1)
 		return 1;
